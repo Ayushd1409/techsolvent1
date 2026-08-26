@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# The sitemap is generated dynamically by the backend API
+Sitemap: https://api.techsolvent.in/sitemap.xml
