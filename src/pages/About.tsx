@@ -54,8 +54,10 @@ export default function About() {
         <title>AI Marketing Experts in India | About TechSolvent</title>
         <meta name="description" content="Know TechSolvent – a team of experienced AI marketing experts helping brands grow with data-driven SEO, paid ads, automation, and performance marketing solutions." />
         <meta name="keywords" content="AI marketing experts India, about TechSolvent, digital marketing team, AI marketing agency team" />
+        <link rel="canonical" href="https://techsolvent.in/about" />
         <meta property="og:title" content="AI Marketing Experts in India | About TechSolvent" />
         <meta property="og:description" content="Know TechSolvent – a team of experienced AI marketing experts helping brands grow with data-driven SEO, paid ads, automation, and performance marketing solutions." />
+        <meta property="og:url" content="https://techsolvent.in/about" />
       </Helmet>
       <PageHero
         variant="about"

@@ -36,6 +36,8 @@ export default function ServiceShopify() {
     property="og:description" 
     content="Boost your online business with expert Shopify Development Services. We build fast, user-friendly, conversion-focused Shopify stores tailored to your brand." 
   />
+  <link rel="canonical" href="https://techsolvent.in/services/shopify-development" />
+  <meta property="og:url" content="https://techsolvent.in/services/shopify-development" />
 </Helmet>
       <PageHero
         variant="shopify"

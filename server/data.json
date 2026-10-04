@@ -2,21 +2,29 @@
   "blogs": [
     {
       "id": "ai-marketing-revolution",
+      "slug": "ai-marketing-revolution-2025",
       "title": "The AI Marketing Revolution: How to Stay Ahead in 2025",
       "category": "AI Marketing",
+      "status": "Published",
       "date": "Feb 2025",
       "read": "5 min read",
+      "author": "Team TechSolvent",
+      "authorRole": "Growth Experts",
       "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&auto=format&fit=crop",
-      "content": "The world of AI marketing is moving faster than ever. What worked last year might not work today. This deep dive uncovers how the most successful brands are leveraging AI to outpace competitors.",
+      "imageAltText": "AI Marketing Revolution and Future of Automation",
+      "excerpt": "The world of AI marketing is moving faster than ever. This deep dive uncovers how the most successful brands are leveraging AI to outpace competitors.",
+      "content": "The world of AI marketing is moving faster than ever. What worked last year might not work today. This deep dive uncovers how the most successful brands are leveraging AI to outpace competitors.\n\nFrom predictive analytics to generative content, the goal is to enhance human creativity, not replace it.",
       "quote": "To stay ahead of the curve, brands must adapt to the new reality of digital consumption. It's not just about being seen; it's about being genuinely relevant.",
+      "metaTitle": "The AI Marketing Revolution: How to Stay Ahead in 2025 | TechSolvent",
+      "metaDescription": "Discover how the top brands leverage AI marketing tools, predictive analytics, and automated workflows to scale revenue in 2025.",
+      "canonicalUrl": "https://techsolvent.in/blog/ai-marketing-revolution-2025",
       "sections": [
         {
-          "title": "The Next Big Shift",
+          "title": "The Next Big Shift in Consumer Behavior",
           "paragraphs": [
             "In today's rapidly evolving digital landscape, staying ahead means continuously adapting to new technologies and consumer behaviors. Brands that rely on yesterday's playbooks risk being left behind as competitors embrace innovation. Exploring deep into the core elements of modern marketing requires a synthesis of creativity and data.",
             "By implementing thoughtful strategies rather than chasing fleeting trends, companies can establish sustainable growth engines. This involves a fundamental rewiring of how we approach customer acquisition, from first touchpoint to final conversion."
-          ],
-          "image": "http://localhost:8080/uploads/1779040339170-642332448.png"
+          ]
         },
         {
           "title": "Mastering the AI Toolset",
@@ -26,22 +34,39 @@
           ]
         }
       ],
-      "takeaways": [
-        "Understand the changing dynamics of your specific industry.",
-        "Invest in high-quality, authentic storytelling formats.",
-        "Leverage technology not as a replacement, but as an enabler of creativity.",
-        "Focus on building long-term community relationships over short-term gains."
+      "faqs": [
+        {
+          "question": "What is AI marketing and how does it help businesses grow?",
+          "answer": "AI marketing uses artificial intelligence technologies like machine learning, natural language processing, and predictive data models to automate campaign optimization, customer segmentation, personalized messaging, and ad bidding in real-time."
+        },
+        {
+          "question": "Will AI replace human digital marketers?",
+          "answer": "No. AI automates repetitive analytical tasks and data parsing, empowering human marketers to focus on creative strategy, brand storytelling, and emotional connection with their audience."
+        },
+        {
+          "question": "What are the most impactful AI tools for marketing in 2025?",
+          "answer": "Leading tools include predictive audience modeling software, automated multi-variant creative generators, conversational voice agents for sales calls, and real-time ad spend reallocators."
+        }
       ]
     },
     {
       "id": "seo-chatgpt",
+      "slug": "seo-in-the-age-of-chatgpt",
       "title": "SEO in the Age of ChatGPT: What Every Brand Must Know",
       "category": "SEO / AEO",
+      "status": "Published",
       "date": "Jan 2025",
       "read": "7 min read",
+      "author": "Team TechSolvent",
+      "authorRole": "SEO Strategists",
       "image": "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=800&auto=format&fit=crop",
+      "imageAltText": "SEO in the Age of ChatGPT and Answer Engine Optimization",
+      "excerpt": "Search is changing. With AI overviews and large language models answering queries directly, traditional SEO isn't enough. It's time to shift to Answer Engine Optimization (AEO).",
       "content": "Search is changing. With AI overviews and large language models answering queries directly, traditional SEO isn't enough. It's time to shift your focus to AEO (Answer Engine Optimization) to stay visible.",
       "quote": "Search engines are becoming answer engines. If your content doesn't answer the user's question directly, you're invisible.",
+      "metaTitle": "SEO in the Age of ChatGPT: What Every Brand Must Know | TechSolvent",
+      "metaDescription": "Learn how generative AI and search overviews change organic ranking. Master Answer Engine Optimization (AEO) to dominate search rankings in 2025.",
+      "canonicalUrl": "https://techsolvent.in/blog/seo-in-the-age-of-chatgpt",
       "sections": [
         {
           "title": "From Keywords to Conversations",
@@ -51,50 +76,75 @@
           ]
         },
         {
-          "title": "Building Authority in 2025",
+          "title": "Building E-E-A-T Authority in 2025",
           "paragraphs": [
             "Google's E-E-A-T (Experience, Expertise, Authoritativeness, and Trustworthiness) is more important than ever. AI can generate text, but it can't replicate lived experience. Brands that lean into their unique expertise will win.",
             "Focus on creating original research, case studies, and expert opinions that can't be found elsewhere. This is the only way to build a sustainable search presence."
           ]
         }
       ],
-      "takeaways": [
-        "Prioritize helpfulness over keyword density.",
-        "Optimize for direct answers to common user questions.",
-        "Focus on building original authority through unique data and research.",
-        "Monitor how AI overviews are treating your brand."
+      "faqs": [
+        {
+          "question": "What is the difference between traditional SEO and AEO?",
+          "answer": "Traditional SEO targets ranking web pages on search result pages via keywords and backlinks. AEO (Answer Engine Optimization) structures content to be selected as the definitive direct answer by AI systems such as Google AI Overviews, Perplexity, and ChatGPT."
+        },
+        {
+          "question": "How do I optimize my content for Google AI Overviews?",
+          "answer": "Structure your pages with clear H2/H3 question headers, provide direct 40-60 word answer summaries immediately under the heading, use schema markup (FAQPage and Article), and cite verifiable primary data."
+        },
+        {
+          "question": "Are backlinks still important for AI-driven SEO?",
+          "answer": "Yes. AI models evaluate topical authority and citations. High-authority brand mentions and reputable editorial backlinks signal trust and authoritativeness to both search algorithms and LLMs."
+        }
       ]
     },
     {
       "id": "shopify-not-converting",
+      "slug": "why-your-shopify-store-is-not-converting",
       "title": "Why Your Shopify Store Isn't Converting (And How to Fix It)",
       "category": "E-Commerce",
+      "status": "Published",
       "date": "Dec 2024",
       "read": "4 min read",
+      "author": "Team TechSolvent",
+      "authorRole": "E-Commerce Experts",
       "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop",
+      "imageAltText": "Shopify Store Conversion Rate Optimization Strategies",
+      "excerpt": "You've got traffic, but no sales. This is the classic e-commerce bottleneck. Discover the top conversion killers on Shopify stores and the exact steps to eliminate them today.",
       "content": "You've got traffic, but no sales. This is the classic e-commerce bottleneck. Discover the top five conversion killers on Shopify stores and the exact steps to eliminate them today.",
       "quote": "A pretty website without a clear path to purchase is just a digital brochure. You need a conversion machine.",
+      "metaTitle": "Why Your Shopify Store Isn't Converting (And How to Fix It) | TechSolvent",
+      "metaDescription": "Eliminate the top Shopify conversion killers. Optimize checkout flow, page speed, and mobile UX to increase average order value and sales.",
+      "canonicalUrl": "https://techsolvent.in/blog/why-your-shopify-store-is-not-converting",
       "sections": [
         {
-          "title": "The Speed Trap",
+          "title": "The Speed Trap: Milliseconds Mean Millions",
           "paragraphs": [
             "Every second counts. If your Shopify store takes more than 3 seconds to load, you're losing half your audience. Speed isn't just a technical metric; it's a UX requirement.",
             "Optimize your images, prune your apps, and use a theme built for performance. These small changes can have a massive impact on your bottom line."
           ]
         },
         {
-          "title": "Frictionless Checkout",
+          "title": "Frictionless Checkout and Payment Flexibility",
           "paragraphs": [
             "The biggest conversion killer is a complicated checkout process. Hide unnecessary fields, offer multiple payment options, and ensure the process is mobile-first.",
             "We often see a 20%+ lift in sales just by implementing Shop Pay and Apple Pay for a smoother one-click experience."
           ]
         }
       ],
-      "takeaways": [
-        "Optimize for mobile speed above all else.",
-        "Reduce the number of checkout fields to the absolute minimum.",
-        "Use high-quality product imagery and clear descriptions.",
-        "Leverage social proof and trust signals throughout the site."
+      "faqs": [
+        {
+          "question": "What is a good conversion rate for a Shopify store?",
+          "answer": "The average e-commerce conversion rate across Shopify stores is typically between 1.5% and 2.5%. Top performing direct-to-consumer brands achieve 3.5% to 5%+ through streamlined checkout and personalized offers."
+        },
+        {
+          "question": "Why are shoppers abandoning carts on my Shopify site?",
+          "answer": "Top causes of cart abandonment include unexpected shipping fees, forced account creation, lack of express payment options (UPI, Shop Pay, Apple Pay), and slow mobile loading speeds."
+        },
+        {
+          "question": "How can I improve my Shopify store loading speed?",
+          "answer": "Compress images using modern WebP formats, uninstall unused Shopify apps that inject bloated scripts into your theme, and utilize a lightweight, high-performance theme architecture."
+        }
       ]
     }
   ],
@@ -118,10 +168,10 @@
     {
       "id": "1779441565154",
       "title": "Graphic Designer",
-      "department": "DEsign",
+      "department": "Design",
       "location": "Remote",
       "type": "Internship",
-      "description": "Skills- Canva "
+      "description": "Skills in Canva, Adobe Photoshop, Figma, and social media creative design."
     }
   ],
   "applications": [

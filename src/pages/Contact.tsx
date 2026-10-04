@@ -74,8 +74,10 @@ export default function Contact() {
         <title>Contact TechSolvent | Start Your Digital Growth Journey Today</title>
         <meta name="description" content="Contact TechSolvent to discuss your digital marketing, SEO, web development, and branding needs. Let our experts help you grow your business online." />
         <meta name="keywords" content="contact TechSolvent, digital marketing consultation, book strategy call, marketing agency contact" />
+        <link rel="canonical" href="https://techsolvent.in/contact" />
         <meta property="og:title" content="Contact TechSolvent | Start Your Digital Growth Journey Today" />
         <meta property="og:description" content="Contact TechSolvent to discuss your digital marketing, SEO, web development, and branding needs. Let our experts help you grow your business online." />
+        <meta property="og:url" content="https://techsolvent.in/contact" />
       </Helmet>
       <PageHero
         variant="contact"

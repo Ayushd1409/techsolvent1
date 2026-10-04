@@ -112,6 +112,29 @@ export const Footer = () => {
                     </div>
                 </div>
 
+                {/* Featured Blog Posts (Internal Link Hub for Crawlers & Users) */}
+                <div className="border-t border-white/10 pt-6 pb-2 mb-4">
+                    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+                        <span className="text-xs font-semibold uppercase tracking-wider text-white/50">
+                            Latest Growth Insights:
+                        </span>
+                        <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-white/70">
+                            <Link to="/blog/the-ai-marketing-revolution-how-to-stay-ahead-in-2025" className="hover:text-yellow-400 transition-colors">
+                                AI Marketing Revolution 2025 →
+                            </Link>
+                            <Link to="/blog/seo-in-the-age-of-chatgpt-what-every-brand-must-know" className="hover:text-yellow-400 transition-colors">
+                                SEO in the Age of ChatGPT →
+                            </Link>
+                            <Link to="/blog/why-your-shopify-store-is-not-converting" className="hover:text-yellow-400 transition-colors">
+                                Why Shopify Stores Don't Convert →
+                            </Link>
+                            <Link to="/blog/1788437147427" className="hover:text-yellow-400 transition-colors">
+                                AI-Powered Lead Generation →
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-sm text-white/60">
                         © {new Date().getFullYear()} TechSolvent. All Rights Reserved.

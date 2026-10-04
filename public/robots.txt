@@ -1,5 +1,16 @@
+# Robots.txt for TechSolvent (https://techsolvent.in)
 User-agent: *
 Allow: /
+Allow: /assets/
+Allow: /services/
+Allow: /blog/
 
-# The sitemap is generated dynamically by the backend API
-Sitemap: https://api.techsolvent.in/sitemap.xml
+# Disallow private admin and API paths from search crawlers
+Disallow: /admin
+Disallow: /admin/
+Disallow: /admin/*
+Disallow: /api/
+Disallow: /api/*
+
+# XML Sitemap location
+Sitemap: https://techsolvent.in/sitemap.xml

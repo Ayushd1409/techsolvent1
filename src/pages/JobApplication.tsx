@@ -26,7 +26,7 @@ export default function JobApplication() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/careers")
+    fetch("https://techsolvent.techsolvent.cloud/api/careers")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data || []);
@@ -75,7 +75,7 @@ export default function JobApplication() {
     formData.append("resume", resumeFile);
 
     try {
-      const res = await fetch("http://localhost:8080/api/apply-job", {
+      const res = await fetch("https://techsolvent.techsolvent.cloud/api/apply-job", {
         method: "POST",
         body: formData,
       });
@@ -97,7 +97,8 @@ export default function JobApplication() {
     <PageLayout>
       <Helmet>
         <title>Apply Now | TechSolvent</title>
-        <meta name="description" content="Apply for open positions at TechSolvent." />
+        <meta name="description" content="Apply for open positions at TechSolvent. Join our team of digital marketing experts, developers, and growth strategists." />
+        <link rel="canonical" href="https://techsolvent.in/apply" />
       </Helmet>
       
       <PageHero

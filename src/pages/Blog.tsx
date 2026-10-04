@@ -1,21 +1,24 @@
 import { Link } from "react-router-dom";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PageHero } from "@/components/PageHero";
-import { ArrowRight, BookOpen, ExternalLink } from "lucide-react";
-
+import { ArrowRight, BookOpen, ExternalLink, HelpCircle } from "lucide-react";
+import { SEO } from "@/components/SEO";
 import { useState, useEffect } from "react";
+import { posts as initialBlogPosts } from "@/data/blog-posts";
 
 const categories = ["All", "AI Marketing", "SEO / AEO", "Social Media", "E-Commerce", "Lead Gen", "Strategy"];
 
 export default function Blog() {
-  const [posts, setPosts] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [posts, setPosts] = useState<any[]>(initialBlogPosts);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/blogs")
+    fetch("https://techsolvent.techsolvent.cloud/api/blogs")
       .then(res => res.json())
       .then(data => {
-        setPosts(data || []);
+        if (Array.isArray(data) && data.length > 0) {
+          setPosts(data);
+        }
         setLoading(false);
       })
       .catch(err => {
@@ -26,6 +29,13 @@ export default function Blog() {
 
   return (
     <PageLayout>
+      <SEO
+        title="AI Marketing & SEO Growth Insights | TechSolvent Blog"
+        description="Deep-dives on AI marketing, SEO, social media, and growth strategy from the team that lives and breathes digital marketing every day."
+        canonical="https://techsolvent.in/blog"
+        keywords="ai marketing, seo insights, answer engine optimization, growth agency"
+      />
+
       <PageHero
         variant="blog"
         align="center"
@@ -35,17 +45,8 @@ export default function Blog() {
         subtitle="Deep-dives on AI marketing, SEO, social media, and growth strategy from the team that lives and breathes digital marketing every day."
       />
 
-
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
-          {/* Category pills */}
-          {/* <div className="flex flex-wrap gap-3 mb-12 justify-center">
-            {categories.map((c) => (
-              <button key={c} className={`px-5 py-2 rounded-full text-sm font-medium border transition-all ${c === "All" ? "bg-primary text-primary-foreground border-primary" : "border-border hover:border-primary/50 hover:text-primary"}`}>
-                {c}
-              </button>
-            ))}
-          </div> */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {loading ? (
               <div className="col-span-full text-center py-12 text-muted-foreground">Loading blogs...</div>
@@ -53,21 +54,42 @@ export default function Blog() {
               <div className="col-span-full text-center py-12 text-muted-foreground">No blogs found.</div>
             ) : (
               posts.map((post) => (
-                <Link to={`/blog/${post.id}`} key={post.id} className="block">
-                  <article className="group rounded-2xl border border-border overflow-hidden hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5 cursor-pointer h-full">
-                    <div className="h-48 overflow-hidden">
-                      <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    </div>
-                    <div className="p-6">
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className="text-xs font-medium text-primary">{post.category}</span>
-                        <span className="text-xs text-muted-foreground">•</span>
-                        <span className="text-xs text-muted-foreground">{post.date}</span>
-                        <span className="text-xs text-muted-foreground">•</span>
-                        <span className="text-xs text-muted-foreground">{post.read}</span>
+                <Link to={`/blog/${post.slug || post.id}`} key={post.id} className="block">
+                  <article className="group rounded-2xl border border-border overflow-hidden hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-primary/5 cursor-pointer h-full bg-card flex flex-col justify-between">
+                    <div>
+                      <div className="aspect-[16/10] w-full overflow-hidden bg-muted/20 relative">
+                        <img 
+                          src={post.image} 
+                          alt={post.imageAltText || post.title} 
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                        />
                       </div>
-                      <h2 className="text-lg font-bold leading-snug mb-4 group-hover:text-primary transition-colors">{post.title}</h2>
-                      <div className="flex items-center gap-1 text-primary text-sm font-medium">Read More <ExternalLink className="w-4 h-4" /></div>
+                      <div className="p-6">
+                        <div className="flex flex-wrap items-center gap-2 mb-3">
+                          <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">{post.category}</span>
+                          <span className="text-xs text-muted-foreground">•</span>
+                          <span className="text-xs text-muted-foreground">{post.date}</span>
+                          {post.faqs && post.faqs.length > 0 && (
+                            <>
+                              <span className="text-xs text-muted-foreground">•</span>
+                              <span className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
+                                <HelpCircle className="w-3 h-3" /> {post.faqs.length} FAQs
+                              </span>
+                            </>
+                          )}
+                        </div>
+                        <h2 className="text-lg font-bold leading-snug mb-3 group-hover:text-primary transition-colors text-foreground">{post.title}</h2>
+                        {post.excerpt && (
+                          <p className="text-xs text-muted-foreground line-clamp-2 mb-4 leading-relaxed">
+                            {post.excerpt}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    <div className="px-6 pb-6 pt-0">
+                      <div className="flex items-center gap-1 text-primary text-sm font-semibold">
+                        Read Article <ExternalLink className="w-3.5 h-3.5" />
+                      </div>
                     </div>
                   </article>
                 </Link>

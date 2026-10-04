@@ -44,6 +44,8 @@ export default function ServicePerformanceMarketing() {
     property="og:description" 
     content="Boost leads and sales with our performance marketing service. TechSolvent creates data-driven ad campaigns focused on ROI, conversions, and measurable business growth." 
   />
+  <link rel="canonical" href="https://techsolvent.in/services/performance-marketing" />
+  <meta property="og:url" content="https://techsolvent.in/services/performance-marketing" />
 </Helmet>
             <PageHero
                 variant="performance"

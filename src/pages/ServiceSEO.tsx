@@ -37,6 +37,8 @@ export default function ServiceSEO() {
     property="og:description" 
     content="Boost rankings with TechSolvent’s AI SEO services. We use smart automation, data insights, and expert strategies to drive organic traffic, leads, and growth." 
   />
+  <link rel="canonical" href="https://techsolvent.in/services/seo" />
+  <meta property="og:url" content="https://techsolvent.in/services/seo" />
 </Helmet>
       <PageHero
         variant="seo"

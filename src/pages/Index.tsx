@@ -235,8 +235,10 @@ export default function Index() {
         <title>AI-Driven Digital Marketing Agency in India | TechSolvent</title>
         <meta name="description" content="TechSolvent is a leading AI-Driven Digital Marketing Agency helping businesses grow with smart SEO, PPC, social media, and data-driven marketing strategies." />
         <meta name="keywords" content="AI-Driven Digital Marketing Agency, AI digital marketing agency, digital marketing agency for ecommerce, AI powered marketing agency, AI marketing services" />
+        <link rel="canonical" href="https://techsolvent.in/" />
         <meta property="og:title" content="AI-Driven Digital Marketing Agency in India | TechSolvent" />
         <meta property="og:description" content="TechSolvent is a leading AI-Driven Digital Marketing Agency helping businesses grow with smart SEO, PPC, social media, and data-driven marketing strategies." />
+        <meta property="og:url" content="https://techsolvent.in/" />
       </Helmet>
       {/* HERO Modern Light Layout */}
       {/* <section className="relative lg:min-h-[85vh] flex items-center overflow-hidden bg-[#165DFB]"> */}
@@ -302,18 +304,16 @@ export default function Index() {
             AI-POWERED DIGITAL MARKETING
           </div>
 
-          {/* Headline */}
-          <p className="text-5xl md:text-7xl lg:text-8xl font-black font-display leading-none tracking-tight mb-2 text-white max-w-4xl">
-            <span className="text-white drop-shadow-lg">AI-Driven</span>
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold text-white/90 mb-3">
-            AI Digital Marketing Agency
+          {/* Primary H1 Headline for Search Crawlers */}
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-display leading-tight tracking-tight mb-4 text-white max-w-4xl">
+            <span className="text-white drop-shadow-lg">AI-Driven</span>{" "}
+            <span className="text-[#ffe546] drop-shadow-lg">Digital Marketing Agency</span>
+          </h1>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white/90 mb-4 max-w-3xl">
+            Digital Marketing Agency for E-Commerce &amp; High-Growth Brands
           </h2>
-          <p className="text-xl md:text-2xl font-semibold text-white mb-8 max-w-2xl leading-snug">
-            <h3>Digital marketing agency for ecommerce​</h3>
-            <span className="text-white/70 font-normal text-lg leading-relaxed block mt-2">
-             <h4> AI marketing services. Real results. From SEO and performance marketing to voice automation. TechSolvent is built for brands that want to win.</h4>
-            </span>
+          <p className="text-base sm:text-xl text-white/80 font-normal leading-relaxed max-w-2xl mb-8">
+            AI marketing services that drive real results. From SEO, AEO, and performance marketing to AI voice automation. TechSolvent is built for brands that want to dominate and scale.
           </p>
 
           {/* CTA */}

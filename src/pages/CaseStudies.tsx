@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Link } from "react-router-dom";
 import { ArrowRight, TrendingUp, Users, Search, CheckCircle, BarChart2, Target, Globe, Star, Heart, ShoppingBag, BookOpen, Award, Zap, Shirt } from "lucide-react";
@@ -359,6 +360,15 @@ export default function CaseStudies() {
 
   return (
     <PageLayout>
+      <Helmet>
+        <title>Digital Marketing Case Studies & Client Results | TechSolvent</title>
+        <meta name="description" content="Discover how TechSolvent drove 4X-8X ROAS, 300% organic traffic, and massive lead generation for top D2C, e-commerce, and global brands." />
+        <meta name="keywords" content="digital marketing case studies, ecommerce growth results, performance marketing ROI, TechSolvent clients" />
+        <link rel="canonical" href="https://techsolvent.in/case-studies" />
+        <meta property="og:title" content="Digital Marketing Case Studies & Client Results | TechSolvent" />
+        <meta property="og:description" content="Discover how TechSolvent drove 4X-8X ROAS, 300% organic traffic, and massive lead generation for top D2C, e-commerce, and global brands." />
+        <meta property="og:url" content="https://techsolvent.in/case-studies" />
+      </Helmet>
       {/* HERO */}
       <section
         className="relative py-28 overflow-hidden"

@@ -1,9 +1,15 @@
+import { Helmet } from "react-helmet-async";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PageHero } from "@/components/PageHero";
 
 export default function TermsOfService() {
     return (
         <PageLayout>
+            <Helmet>
+                <title>Terms of Service | TechSolvent</title>
+                <meta name="description" content="Review TechSolvent's terms of service regarding the use of our website, agency services, and digital products." />
+                <link rel="canonical" href="https://techsolvent.in/terms-of-service" />
+            </Helmet>
             <PageHero
                 variant="about"
                 title="Terms of Service"

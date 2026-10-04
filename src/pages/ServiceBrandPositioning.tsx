@@ -42,6 +42,8 @@ export default function ServiceBrandPositioning() {
     property="og:description" 
     content="Build a strong and memorable brand with expert brand strategy services from TechSolvent. We help businesses define positioning, messaging, and identity." 
   />
+  <link rel="canonical" href="https://techsolvent.in/services/brand-positioning" />
+  <meta property="og:url" content="https://techsolvent.in/services/brand-positioning" />
 </Helmet>
             <PageHero
                 variant="brand"

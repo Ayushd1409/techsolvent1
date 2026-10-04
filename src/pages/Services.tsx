@@ -55,8 +55,10 @@ export default function Services() {
         <title>{'AI Digital Marketing Services in India | SEO, PPC & Social Media – TechSolvent'}</title>
         <meta name="description" content="Explore result-driven AI digital marketing services by TechSolvent, including SEO, PPC, social media marketing, and data-driven growth strategies." />
         <meta name="keywords" content="AI digital marketing services, AI Powered Marketing Services, Digital Marketing Services" />
+        <link rel="canonical" href="https://techsolvent.in/services" />
         <meta property="og:title" content="AI Digital Marketing Services in India | SEO, PPC & Social Media – TechSolvent" />
         <meta property="og:description" content="Explore result-driven AI digital marketing services by TechSolvent, including SEO, PPC, social media marketing, and data-driven growth strategies." />
+        <meta property="og:url" content="https://techsolvent.in/services" />
       </Helmet>
       <PageHero
         variant="services"

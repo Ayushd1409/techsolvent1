@@ -1,4 +1,5 @@
-import "dotenv/config";
+import dotenv from "dotenv";
+dotenv.config({ override: true });
 import express from "express";
 import cors from "cors";
 import nodemailer from "nodemailer";
@@ -19,7 +20,10 @@ const storage = multer.diskStorage({
     cb(null, `${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`);
   }
 });
-const upload = multer({ storage });
+const upload = multer({
+  storage,
+  limits: { fileSize: 50 * 1024 * 1024 }, // 50 MB
+});
 
 // Helper to read data
 function readData() {
@@ -55,7 +59,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 /* ── Middleware ─────────────────────────────────────────── */
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -218,40 +223,81 @@ function buildConfirmationEmail(data) {
 </html>`;
 }
 
+function generateSlug(text) {
+  return (text || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 /* ── Sitemap Generation ────────────────────────────────── */
-app.get("/sitemap.xml", (req, res) => {
+const renderSitemap = (req, res) => {
   const data = readData();
   const frontendUrl = process.env.FRONTEND_URL || "https://techsolvent.in";
   
-  const staticPages = ["", "/about", "/services", "/blog", "/career"];
+  const staticPages = [
+    { path: "", changefreq: "daily", priority: "1.0" },
+    { path: "/about", changefreq: "weekly", priority: "0.8" },
+    { path: "/services", changefreq: "weekly", priority: "0.9" },
+    { path: "/contact", changefreq: "monthly", priority: "0.8" },
+    { path: "/blog", changefreq: "daily", priority: "0.9" },
+    { path: "/case-studies", changefreq: "weekly", priority: "0.8" },
+    { path: "/career", changefreq: "weekly", priority: "0.7" },
+    { path: "/apply", changefreq: "monthly", priority: "0.6" },
+    { path: "/services/performance-marketing", changefreq: "weekly", priority: "0.8" },
+    { path: "/services/virtual-influencer", changefreq: "weekly", priority: "0.8" },
+    { path: "/services/seo", changefreq: "weekly", priority: "0.8" },
+    { path: "/services/voice-agent", changefreq: "weekly", priority: "0.8" },
+    { path: "/services/lead-generation", changefreq: "weekly", priority: "0.8" },
+    { path: "/services/custom-web-development", changefreq: "weekly", priority: "0.8" },
+    { path: "/services/shopify-development", changefreq: "weekly", priority: "0.8" },
+    { path: "/services/brand-positioning", changefreq: "weekly", priority: "0.8" },
+    { path: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
+    { path: "/terms-of-service", changefreq: "yearly", priority: "0.3" },
+  ];
   
+  const today = new Date().toISOString().split("T")[0];
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
   xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
 
   // Static pages
-  staticPages.forEach(page => {
+  staticPages.forEach(p => {
     xml += `  <url>\n`;
-    xml += `    <loc>${frontendUrl}${page}</loc>\n`;
-    xml += `    <changefreq>weekly</changefreq>\n`;
-    xml += `    <priority>${page === "" ? "1.0" : "0.8"}</priority>\n`;
+    xml += `    <loc>${frontendUrl}${p.path}</loc>\n`;
+    xml += `    <lastmod>${today}</lastmod>\n`;
+    xml += `    <changefreq>${p.changefreq}</changefreq>\n`;
+    xml += `    <priority>${p.priority}</priority>\n`;
     xml += `  </url>\n`;
   });
 
-  // Dynamic Blog pages
+  // Dynamic Blog pages using SEO-friendly slugs
   if (data.blogs && Array.isArray(data.blogs)) {
-    data.blogs.forEach(blog => {
-      xml += `  <url>\n`;
-      xml += `    <loc>${frontendUrl}/blog/${blog.id}</loc>\n`;
-      xml += `    <changefreq>monthly</changefreq>\n`;
-      xml += `    <priority>0.7</priority>\n`;
-      xml += `  </url>\n`;
-    });
+    data.blogs
+      .filter(b => b.status !== "Draft" && b.status !== "Archived")
+      .forEach(blog => {
+        const blogSlug = blog.slug || generateSlug(blog.title) || blog.id;
+        xml += `  <url>\n`;
+        xml += `    <loc>${frontendUrl}/blog/${blogSlug}</loc>\n`;
+        xml += `    <lastmod>${today}</lastmod>\n`;
+        xml += `    <changefreq>weekly</changefreq>\n`;
+        xml += `    <priority>0.8</priority>\n`;
+        xml += `  </url>\n`;
+      });
   }
 
   xml += `</urlset>`;
 
   res.header("Content-Type", "application/xml");
   res.send(xml);
+};
+
+app.get("/sitemap.xml", renderSitemap);
+app.get("/api/sitemap.xml", renderSitemap);
+
+app.post("/api/update-sitemap", (req, res) => {
+  res.json({ success: true, message: "Sitemap updated successfully" });
 });
 
 /* ── Admin Auth & Dynamic API ──────────────────────────── */
@@ -266,16 +312,29 @@ app.post("/api/admin/login", (req, res) => {
 
 app.post("/api/upload", authenticateAdmin, upload.single("image"), (req, res) => {
   if (!req.file) return res.status(400).json({ error: "No file uploaded" });
-  const url = `http://localhost:${PORT}/uploads/${req.file.filename}`;
+  const url = `https://techsolvent.techsolvent.cloud/uploads/${req.file.filename}`;
   res.json({ success: true, url });
 });
 
 /* Blogs API */
 app.get("/api/blogs", (req, res) => res.json(readData().blogs));
 
+app.get("/api/blogs/:id", (req, res) => {
+  const data = readData();
+  const blog = data.blogs.find(b => b.id === req.params.id || b.slug === req.params.id);
+  if (!blog) return res.status(404).json({ error: "Blog not found" });
+  res.json(blog);
+});
+
 app.post("/api/blogs", authenticateAdmin, (req, res) => {
   const data = readData();
-  const newBlog = { id: Date.now().toString(), ...req.body };
+  const blogTitle = req.body.title || "Untitled Article";
+  const slug = req.body.slug ? generateSlug(req.body.slug) : generateSlug(blogTitle);
+  const newBlog = {
+    id: Date.now().toString(),
+    ...req.body,
+    slug: slug || Date.now().toString(),
+  };
   data.blogs.unshift(newBlog); // add to top
   writeData(data);
   res.json({ success: true, blog: newBlog });
@@ -283,16 +342,25 @@ app.post("/api/blogs", authenticateAdmin, (req, res) => {
 
 app.put("/api/blogs/:id", authenticateAdmin, (req, res) => {
   const data = readData();
-  const index = data.blogs.findIndex(b => b.id === req.params.id);
+  const index = data.blogs.findIndex(b => b.id === req.params.id || b.slug === req.params.id);
   if (index === -1) return res.status(404).json({ error: "Not found" });
-  data.blogs[index] = { ...data.blogs[index], ...req.body };
+  
+  const updatedSlug = req.body.slug 
+    ? generateSlug(req.body.slug) 
+    : data.blogs[index].slug || generateSlug(req.body.title || data.blogs[index].title);
+
+  data.blogs[index] = { 
+    ...data.blogs[index], 
+    ...req.body,
+    slug: updatedSlug,
+  };
   writeData(data);
   res.json({ success: true, blog: data.blogs[index] });
 });
 
 app.delete("/api/blogs/:id", authenticateAdmin, (req, res) => {
   const data = readData();
-  data.blogs = data.blogs.filter(b => b.id !== req.params.id);
+  data.blogs = data.blogs.filter(b => b.id !== req.params.id && b.slug !== req.params.id);
   writeData(data);
   res.json({ success: true });
 });
@@ -363,7 +431,7 @@ app.post("/api/apply-job", upload.single("resume"), async (req, res) => {
   const data = readData();
   if (!data.applications) data.applications = [];
 
-  const resumeUrl = resume ? `http://localhost:${PORT}/uploads/${resume.filename}` : null;
+  const resumeUrl = resume ? `https://techsolvent.techsolvent.cloud/uploads/${resume.filename}` : null;
   const newApp = {
     id: Date.now().toString(),
     name,

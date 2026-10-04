@@ -1,9 +1,15 @@
+import { Helmet } from "react-helmet-async";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { PageHero } from "@/components/PageHero";
 
 export default function PrivacyPolicy() {
     return (
         <PageLayout>
+            <Helmet>
+                <title>Privacy Policy | TechSolvent</title>
+                <meta name="description" content="Read TechSolvent's privacy policy to understand how we collect, store, and protect your personal data." />
+                <link rel="canonical" href="https://techsolvent.in/privacy-policy" />
+            </Helmet>
             <PageHero
                 variant="about"
                 title="Privacy Policy"

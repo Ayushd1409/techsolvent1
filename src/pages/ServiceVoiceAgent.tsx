@@ -49,6 +49,8 @@ export default function ServiceVoiceAgent() {
     property="og:description" 
     content="Automate customer calls and support with a smart AI voice agent from TechSolvent. Improve response time, capture leads, and deliver seamless voice interactions 24/7." 
   />
+  <link rel="canonical" href="https://techsolvent.in/services/voice-agent" />
+  <meta property="og:url" content="https://techsolvent.in/services/voice-agent" />
 </Helmet>
       <PageHero
         variant="voice"

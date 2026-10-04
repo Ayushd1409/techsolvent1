@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Lock, User } from "lucide-react";
 
@@ -16,7 +17,7 @@ export default function AdminLogin() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:8080/api/admin/login", {
+      const res = await fetch("https://techsolvent.techsolvent.cloud/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -38,6 +39,10 @@ export default function AdminLogin() {
 
   return (
     <PageLayout>
+      <Helmet>
+        <title>Admin Login | TechSolvent</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <div className="min-h-screen pt-32 pb-24 flex items-center justify-center bg-background px-4">
         <div className="w-full max-w-md bg-white border border-border p-8 rounded-3xl shadow-sm">
           <div className="text-center mb-8">

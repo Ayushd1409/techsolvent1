@@ -43,6 +43,8 @@ export default function ServiceCustomWeb() {
     property="og:description" 
     content="TechSolvent is a professional website development company creating custom, fast, SEO-friendly websites tailored to your business goals. Build your presence." 
   />
+  <link rel="canonical" href="https://techsolvent.in/services/custom-web-development" />
+  <meta property="og:url" content="https://techsolvent.in/services/custom-web-development" />
 </Helmet>
       <PageHero
         variant="web"

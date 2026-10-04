@@ -39,6 +39,8 @@ export default function ServiceLeadGen() {
     property="og:description" 
     content="Looking for reliable lead generation services? TechSolvent attracts high-quality leads using AI-driven marketing, SEO, paid ads, and smart conversion strategies." 
   />
+  <link rel="canonical" href="https://techsolvent.in/services/lead-generation" />
+  <meta property="og:url" content="https://techsolvent.in/services/lead-generation" />
 </Helmet>
       <PageHero
         variant="leads"

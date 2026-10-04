@@ -9,7 +9,7 @@ export default function Career() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/careers")
+    fetch("https://techsolvent.techsolvent.cloud/api/careers")
       .then(res => res.json())
       .then(data => {
         setJobs(data || []);
@@ -26,6 +26,10 @@ export default function Career() {
       <Helmet>
         <title>Careers | TechSolvent - Join Our Team</title>
         <meta name="description" content="Explore career opportunities at TechSolvent. Join our team of digital marketing experts, developers, and strategists." />
+        <link rel="canonical" href="https://techsolvent.in/career" />
+        <meta property="og:title" content="Careers | TechSolvent - Join Our Team" />
+        <meta property="og:description" content="Explore career opportunities at TechSolvent. Join our team of digital marketing experts, developers, and strategists." />
+        <meta property="og:url" content="https://techsolvent.in/career" />
       </Helmet>
 
       <PageHero

@@ -36,6 +36,8 @@ export default function ServiceVirtualInfluencer() {
     property="og:description" 
     content="TechSolvent is a results-driven social media marketing agency offering virtual influencer marketing solutions to boost brand visibility, engagement, and online growth." 
   />
+  <link rel="canonical" href="https://techsolvent.in/services/virtual-influencer" />
+  <meta property="og:url" content="https://techsolvent.in/services/virtual-influencer" />
 </Helmet>
             <PageHero
                 variant="influencer"
