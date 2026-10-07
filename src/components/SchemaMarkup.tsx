@@ -28,6 +28,14 @@ export function SchemaMarkup({ type, data }: SchemaMarkupProps) {
         availableLanguage: ["English", "Hindi"]
       }
     ],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Office No. 229, Zodiac Mall, Opp. Agarwal Public School, Pipliyahana",
+      addressLocality: "Indore",
+      addressRegion: "Madhya Pradesh",
+      postalCode: "452016",
+      addressCountry: "IN"
+    },
     sameAs: [
       "https://www.linkedin.com/company/techsolvent",
       "https://www.instagram.com/techsolvent"

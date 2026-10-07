@@ -189,7 +189,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground mb-1">Address</p>
-                    <p className="font-semibold text-sm">649, 650, above Lenskart Showroom, Sector A, Mahalaxmi Nagar, Indore, MP</p>
+                    <p className="font-semibold text-sm">Office No. 229, Zodiac Mall, Opp. Agarwal Public School, Pipliyahana, Indore, Madhya Pradesh 452016, India</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">

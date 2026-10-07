@@ -98,7 +98,7 @@ export const Footer = () => {
                         <ul className="space-y-4 text-sm text-white/80">
                             <li className="flex items-start gap-3">
                                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                                <span>649, 650, above Lenskart Showroom, Sector A, Mahalaxmi Nagar, Indore, MP</span>
+                                <span>Office No. 229, Zodiac Mall, Opp. Agarwal Public School, Pipliyahana, Indore, Madhya Pradesh 452016, India</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone className="w-5 h-5 text-primary shrink-0" />
